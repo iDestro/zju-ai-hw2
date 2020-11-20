@@ -21,7 +21,7 @@ def preprocess(path, max_length=200):
     model_config = BertConfig.from_pretrained("bert-base-chinese")
     model_config.output_hidden_states = True
     model_config.output_attentions = True
-    bert_model = BertModel.from_pretrained("../bert-base-chinese", config=model_config).cuda()
+    bert_model = BertModel.from_pretrained("bert-base-chinese", config=model_config).cuda()
     filenames = os.listdir(path)
 
     tot_sentences = 0
@@ -61,7 +61,7 @@ def sentence2vec(text, max_length=200):
     model_config = BertConfig.from_pretrained("bert-base-chinese")
     model_config.output_hidden_states = True
     model_config.output_attentions = True
-    bert_model = BertModel.from_pretrained("../bert-base-chinese", config=model_config).cuda()
+    bert_model = BertModel.from_pretrained("bert-base-chinese", config=model_config).cuda()
     with torch.no_grad():
         input = tokenizer(text, return_tensors="pt")
         valid_token_cnt = input['input_ids'].numel() - 2

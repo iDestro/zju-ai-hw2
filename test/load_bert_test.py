@@ -5,7 +5,7 @@ tokenizer = AutoTokenizer.from_pretrained("bert-base-chinese")
 model_config = BertConfig.from_pretrained("bert-base-chinese")
 model_config.output_hidden_states = True
 model_config.output_attentions = True
-bert_model = BertModel.from_pretrained("../bert-base-chinese", config=model_config)
+bert_model = BertModel.from_pretrained("bert-base-chinese", config=model_config)
 
 with torch.no_grad():
     input = tokenizer("我我我", return_tensors="pt")
